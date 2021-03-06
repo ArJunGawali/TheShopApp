@@ -12,8 +12,8 @@ const ProductDetailScreen = (props) => {
   return (
     <View>
       <Image style={styles.img} source={{ uri: selectedProduct.imgUrl }} />
-      <View style={styles.buttonContainer}>
-        <Button title="Add To Cart" />
+      <View style={styles.buttonCon}>
+        <Button title="Add To Cart" onPress={() => {}} />
       </View>
 
       <Text style={styles.price}>${selectedProduct.price}</Text>
@@ -42,17 +42,16 @@ const styles = StyleSheet.create({
     color: "#888",
     textAlign: "center",
     margin: 10,
-    fontFamily: "open-sans-bold",
+    // fontFamily: "open-sans-bold",
   },
   description: {
     fontSize: 14,
     textAlign: "center",
     margin: 10,
-    fontFamily: "open-sans",
+    // fontFamily: "open-sans",
   },
-  buttonContainer: {
-    flex: 1,
-    marginVertical: 10,
+  buttonCon: {
+    margin: 10,
     alignItems: "center",
   },
 });

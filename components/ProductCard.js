@@ -10,7 +10,7 @@ import {
 
 const ProductCard = (props) => {
   return (
-    <TouchableOpacity onPress={props.detailsHandler}>
+    <TouchableOpacity onPress={props.onSelect}>
       <View style={styles.container}>
         <View style={styles.imgContainer}>
           <Image style={styles.img} source={{ uri: props.imgUrl }} />
@@ -21,8 +21,9 @@ const ProductCard = (props) => {
           <Text style={styles.price}>${props.price.toFixed(2)}</Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Button title="Details" onPress={props.detailsHandler} />
-          <Button title="Add To Cart" onPress={props.addCartHandler} />
+          {/* <Button title="Details" onPress={props.detailsHandler} />
+          <Button title="Add To Cart" onPress={props.addCartHandler} /> */}
+          {props.children}
         </View>
       </View>
     </TouchableOpacity>

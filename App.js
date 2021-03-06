@@ -9,26 +9,27 @@ import { AppLoading } from "expo-app-loading";
 import * as Font from "expo-font";
 import cartReducer from "./store/reducer/cart";
 import productReducer from "./store/reducer/product";
-
+import ordersReducer from "./store/reducer/orders";
 const rootReducer = combineReducers({
   product: productReducer,
   cart: cartReducer,
+  orders: ordersReducer,
 });
 export const store = createStore(rootReducer);
 
-const fetchFont = () => {
-  return Font.loadAsync({
-    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-    "rock-roll": require("./assets/fonts/RocknRollOne-Regular.ttf"),
-  });
-};
+// const fetchFont = () => {
+//   return Font.loadAsync({
+//     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+//     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+//     "rock-roll": require("./assets/fonts/RocknRollOne-Regular.ttf"),
+//   });
+// };
 
 export default function App() {
-  const [fontLoaded, setFontLoaded] = useState(false);
-  if (!fontLoaded) {
-    return <AppLoading startAsync={fetchFont} onFinish={setFontLoaded(true)} />;
-  }
+  // const [fontLoaded, setFontLoaded] = useState(false);
+  // if (!fontLoaded) {
+  //   return <AppLoading startAsync={fetchFont} onFinish={setFontLoaded(true)} />;
+  // }
   return (
     <Provider store={store}>
       <ShopNavigator />
