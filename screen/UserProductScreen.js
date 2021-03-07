@@ -10,6 +10,10 @@ const UserProductScreen = (props) => {
   const availableProduct = useSelector((state) => state.product.userProduct);
   // console.log(availableProduct);
   const dispatch = useDispatch();
+  const editProductHandler = (id, prod) => {
+    props.navigation.navigate("editProduct", { productId: id, product: prod });
+  };
+
   const deleteHandler = (id) => {
     console.log("i am running");
     Alert.alert("Are you sure?", "Do you really want to delete this item?", [
@@ -33,22 +37,21 @@ const UserProductScreen = (props) => {
           title={itemData.item.productName}
           // imgUrl={itemData.item.imgUrl}
           price={itemData.item.price}
-          onSelect={() => {
-            props.navigation.navigate("editProduct", {
-              productId: itemData.item.id,
-              productTitle: itemData.item.productName,
-            });
-          }}
+          onSelect={editProductHandler.bind(
+            this,
+            itemData.item.id,
+            itemData.item
+          )}
         >
           <Button
             title="Edit Product"
-            onPress={() => {
-              props.navigation.navigate("editProduct", {
-                productId: itemData.item.id,
-                productTitle: itemData.item.productName,
-              });
-            }}
+            onPress={editProductHandler.bind(
+              this,
+              itemData.item.id,
+              itemData.item
+            )}
           />
+
           <Button
             title="Delete Product"
             onPress={deleteHandler.bind(this, itemData.item.id)}

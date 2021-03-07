@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import { HeaderTitle } from "react-navigation-stack";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import * as cartAction from "../store/action/cart";
 const ProductDetailScreen = (props) => {
   const ProductId = props.navigation.getParam("productId");
-  console.log(ProductId);
+  // console.log(ProductId);
+  const dispatch = useDispatch();
   const selectedProduct = useSelector((state) =>
     state.product.product.find((prod) => prod.id === ProductId)
   );
@@ -13,7 +14,13 @@ const ProductDetailScreen = (props) => {
     <View>
       <Image style={styles.img} source={{ uri: selectedProduct.imgUrl }} />
       <View style={styles.buttonCon}>
-        <Button title="Add To Cart" onPress={() => {}} />
+        <Button
+          title="Add To Cart"
+          onPress={() => {
+            // console.log(dispatch, "fuction");
+            // dispatch(cartAction.addToCart(ProductId));
+          }}
+        />
       </View>
 
       <Text style={styles.price}>${selectedProduct.price}</Text>
