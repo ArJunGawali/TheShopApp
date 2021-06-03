@@ -10,7 +10,7 @@ const ProductCartScreen = () => {
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const transformedCartItems = [];
-  for (key in cartItems) {
+  for (const key in cartItems) {
     transformedCartItems.push({
       prodId: key,
       prodName: cartItems[key].productName,

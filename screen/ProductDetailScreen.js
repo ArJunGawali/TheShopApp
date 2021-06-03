@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
-import { HeaderTitle } from "react-navigation-stack";
+
 import { useDispatch, useSelector } from "react-redux";
 import * as cartAction from "../store/action/cart";
 const ProductDetailScreen = (props) => {

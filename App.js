@@ -4,7 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 // import { store } from "./store/store";
 import ShopNavigator from "./navigation/ShopNavigator";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import ReduxThunk from "redux-thunk";
+
 import { AppLoading } from "expo-app-loading";
 import * as Font from "expo-font";
 import cartReducer from "./store/reducer/cart";
@@ -15,7 +17,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   orders: ordersReducer,
 });
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 // const fetchFont = () => {
 //   return Font.loadAsync({
